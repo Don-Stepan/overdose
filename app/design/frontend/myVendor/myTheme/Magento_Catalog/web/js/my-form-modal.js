@@ -35,9 +35,9 @@ define([
 
          populateData: function() {         
             let customer = customerData.get('customer')();
-            let firstMame = customer.fullname.split(" ")[0];
+            let firstName = customer.fullname.split(" ")[0];
             let lastName = customer.fullname.split(" ")[1];
-            $('#fname').val(firstMame);
+            $('#fname').val(firstName);
             $('#lname').val(lastName);
          }
      });
