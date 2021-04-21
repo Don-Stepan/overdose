@@ -12,16 +12,26 @@
   <input class="my-request-bottom" type="button" value="<?= __('Request price') ?>">
   <div class="pop-up">
     <form>
-      <label for="fname"><?= __('First name: *') ?></label><br>
-      <input type="text" id="fname" name="fname"><br>
-      <label for="lname"><?= __('Last name:') ?></label><br>
-      <input type="text" id="lname" name="lname">
-      <label for="emaill"><?= __('Enter your email: *') ?></label>
-      <input type="email" id="emaill" name="emaill" value="<?= $block->escapeHtmlAttr($block->getUsername()) ?>">
-      <label for="product_name"><?= __('Product name: *') ?></label>
-      <input type="text" id="product_name" name="product_ame" value="<?= $block->getProduct()->getName(); ?>" disabled>
-      <label for="product_sku"><?= __('*SKU:') ?></label>
-      <input type="text" id="product_sku" name="product_sku" value="<?= $block->getProduct()->getSku(); ?>" disabled>
+      <div class="block-input">
+        <label for="fname"><?= __('First name: *') ?></label>
+        <input type="text" id="fname" name="fname">
+      </div>
+      <div class="block-input">
+        <label for="lname"><?= __('Last name:') ?></label>
+        <input type="text" id="lname" name="lname">
+      </div>
+      <div class="block-input">
+        <label for="emaill"><?= __('Enter your email: *') ?></label>
+        <input type="email" id="emaill" name="emaill" value="">
+      </div>
+      <div class="block-input">
+        <label for="product_name"><?= __('Product name: *') ?></label>
+        <input type="text" id="product_name" name="product_ame" value="<?= $block->getProduct()->getName(); ?>" disabled>
+      </div>
+      <div class="block-input">
+        <label for="product_sku"><?= __('*SKU:') ?></label>
+        <input type="text" id="product_sku" name="product_sku" value="<?= $block->getProduct()->getSku(); ?>" disabled>
+      </div>
       <input type="button" value="<?= __('Submit') ?>" />
     </form>
   </div>
