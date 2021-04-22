@@ -1,24 +1,14 @@
-<?php
-/**
- * Copyright © Magento, Inc. All rights reserved.
- * See COPYING.txt for license details.
- */
-
-// phpcs:disable Generic.Files.LineLength.TooLong
-
-/** @var \Magento\Customer\Block\Form\Login $block */
-?>
 <div class="my-request-bottom-block" data-mage-init='{"my_form_modal": {}}' >
   <input class="my-request-bottom" type="button" value="<?= __('Request price') ?>">
   <div class="pop-up">
     <form>
       <div class="block-input">
         <label for="fname"><?= __('First name: *') ?></label>
-        <input type="text" id="fname" name="fname">
+        <input type="text" id="fname" name="fname" disabled>
       </div>
       <div class="block-input">
         <label for="lname"><?= __('Last name:') ?></label>
-        <input type="text" id="lname" name="lname">
+        <input type="text" id="lname" name="lname" disabled>
       </div>
       <div class="block-input">
         <label for="emaill"><?= __('Enter your email: *') ?></label>
