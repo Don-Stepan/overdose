@@ -1,0 +1,325 @@
+
+
+// /**
+//  * Copyright © Magento, Inc. All rights reserved.
+//  * See COPYING.txt for license details.
+//  */
+
+@button__border-color: #adb5bd;
+@toolbar__border-color: #cccbcb;
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+    .page-title-wrapper {
+        display: none;
+    }
+    /////// cms block ////
+    .my-cms-block {
+        margin-bottom: 50px;
+        .cms-block-title {
+            font-weight: bold;
+        }
+    }
+     //// category ////
+    .block-categories {
+        .block-title {
+            color: @color-black;
+            border-bottom: 1px solid @button__border-color;
+            padding-bottom: 15px;
+            width: 188.66px;
+            float: right;
+            strong {
+                font-weight: bold;
+                font-size: 14px;
+            }
+
+            input {
+                float: right;
+                background: none;
+                color: #adb5bd;
+                border: 1px solid @button__border-color;
+                padding: 4px 6px;
+            }
+        }
+        .accordion {
+            li {
+                list-style-type: none;
+                a {
+                    text-decoration: none;
+                    color: #5e6164;
+                }
+                .box-category-number {
+                    float: right;
+                    border: 1px solid @button__border-color;
+                    width: 1em;
+                    height: 1em;
+                    margin-top: 2px;
+                }
+            }
+        }
+    }
+    /////////////// grid post //////
+    .post-list {
+        display: grid;
+        .post-holder {
+            border: none;
+            padding: 0;
+            .post-content {
+                .post-description {
+                    .post-ftimg-hld {
+                        a {
+                            img {
+                                height: 220px;
+                            }
+                        }
+                    }
+                    .post-categories {
+                        a {
+                            color: @color-black;
+                            text-decoration: none;
+                            font-weight: 700;
+                        }
+                    }
+                    .post-header {
+                        .post-title-holder {
+                            .post-title {
+                                a {
+                                    font-weight: bold;
+                                    color: @color-black;
+                                }
+                            }
+                            .addthis_toolbox {
+                                display: none;
+                            }
+                        }
+                        .post-info {
+                            display: none;
+                        }
+                    }
+                    .post-text-hld {
+                        p {
+                          height: 60px;
+                          overflow: hidden;
+                        }
+                    }
+                    .post-read-more {
+                        float: left;
+                        color: @color-black;
+                        font-weight: 700;
+                    }
+                }
+            }
+        }
+    }
+    //////////// toolbar blog post //////
+    .toolbar-blog-posts {
+        .pages {
+            .pages-items {
+                float: right;
+                .pages-item-next {
+                    background-color: @color-black;
+                    border-color: @color-black;
+                    .action {
+                        color: @color-white;
+                        margin: 0;
+                        width: 32px;
+                        border: none;
+                    }
+                }
+                .pages-item-previous {
+                    background-color: @color-black;
+                    border-color: @color-black;
+                    .action {
+                        color: @color-white;
+                        margin: 0;
+                        width: 32px;
+                        border: none;
+                    }
+                }
+                .item {
+                    border: 1px solid @toolbar__border-color;
+                    width: 32px;
+                    text-align: center;
+                    margin: 0;
+                    a {
+                        color: @color-black;
+                    }
+                }
+                .current {
+                    border-color: @color-black;
+                }
+            }
+        }
+    }
+    ////// blog post view     ////////
+    .post-view {
+        .post-holder {
+            border: none;
+            .post-title {
+                font-weight: bold;
+            }
+            .post-header {
+                .post-info {
+                    float: left;
+                   .addthis_toolbox {
+                       margin-left: 15px;
+                       height: 16px;
+                       margin-top: 3.5px;
+                        a {
+                            margin-right: 20px;
+                            margin-bottom: 0;
+                            span {
+                                font-size: 20px;
+                            }
+                        }
+                    }
+                }
+            }
+            .post-bottom {
+                .block-contact-us {
+                    width: 100vw;
+                    position: relative;
+                    margin-left: -50vw;
+                    left: 50%;
+                    padding: 30px 0;
+                    margin-bottom: 50px;
+                    margin-top: 50px;
+                    border-top: 1px solid @button__border-color;
+                    border-bottom: 1px solid @button__border-color;
+                    .block-content-contact {
+                        width: 76%;
+                        margin-left: auto;
+                        margin-right: auto;
+                        display: grid;
+                        .block-text {
+                            padding-top: 60px;
+                            h2 {
+                                font-weight: 600;
+                                padding-bottom: 10px;
+                            }
+                            input {
+                                margin-top: 30px;
+                                border: 1px solid @button__border-color;
+                                padding: 10px 35px;
+                                background: none;
+                                font-weight: 600;
+                            }
+                        }
+                    }
+                }
+                .related {
+                    .block-title {
+                        margin-bottom: 20px;
+                    }
+                    .block-content {
+                        padding-left: 0;
+                        .post-holder {
+                            .post-content {
+                                .post-description {
+                                    .post-text-hld {
+                                        height: 60px;
+                                        overflow: hidden;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+//
+//  Desctop
+//  _____________________________________________
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    /////// cms block ////
+    .my-cms-block {
+        width: 50%;
+    }
+    /////////////// grid post //////
+    .post-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        .post-holder {
+            margin-right: 10px;
+        }
+    }
+    ////// blog post view     ////////
+    .post-view {
+        .post-holder {
+            .post-bottom {
+                .block-contact-us {
+                    .block-content-contact {
+                        grid-template-columns: 1fr 1fr;
+                        .block-img {
+                            img {
+                                width: 90%;
+                                float: right;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+//
+//  Mobile
+//  _____________________________________________
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .post-list {
+        grid-template-columns: 1fr 1fr;
+        .post-holder {
+            margin-right: 3px;
+            margin-left: 3px;
+        }
+    }
+    ////// blog post view     ////////
+    .post-view {
+        .post-holder {
+            .post-header {
+                .addthis_toolbox {
+                    float: left;
+                    margin-left: 20px;
+                    a {
+                        margin-left: 15px;
+                    }
+                }
+            }
+            .post-bottom {
+                .block-contact-us {
+                    .block-content-contact {
+                        grid-template-columns: 1fr;
+                        .block-img {
+                            padding-top: 30px;
+                            img {
+                                float: left;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__xs) {
+    .post-list {
+        grid-template-columns: 1fr;
+    }
+    ////// blog post view     ////////
+    .post-view {
+        .post-holder {
+            .post-header {
+                .addthis_toolbox {
+                    float: right;
+                    margin: 0px;
+                    a {
+                        margin-left: 3px;
+                    }
+                }
+            }
+        }
+    }
+}

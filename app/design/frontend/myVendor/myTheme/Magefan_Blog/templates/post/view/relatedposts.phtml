@@ -1,0 +1,79 @@
+<?php
+/**
+ * Copyright © Magefan (support@magefan.com). All rights reserved.
+ * Please visit Magefan.com for license details (https://magefan.com/end-user-license-agreement).
+ *
+ * Glory to Ukraine! Glory to the heroes!
+ */
+?>
+<?php
+/**
+ * Blog related posts template
+ *
+ * @var $block \Magefan\Blog\Block\Post\View\RelatedPosts
+ * @var $block \Magefan\Blog\Block\Post\AbstractPost
+ */
+?>
+<?php
+    $_post = $block->getPost();
+    $_postUrl = $block->escapeUrl($_post->getPostUrl());
+    $_postName = $block->escapeHtml($_post->getTitle());
+?>
+<?php if ($block->displayPosts()) { ?>
+    <?php $postCollection = $block->getPostCollection(); ?>
+    <?php if (count($postCollection)) { ?>
+    <div class="block related">
+        <div class="block-title title">
+            <strong id="block-relatedposts-heading" role="heading" aria-level="2">
+                <?= $block->escapeHtml(__('Related Posts')) ?>
+            </strong>
+        </div>
+        <ol class="block-content post-list">
+            <?php foreach ($postCollection as $post) { ?>
+                <li class="item post-holder">
+                    <div class="post-content">
+                        <div class="post-description clearfix">                      
+                            <div class="post-ftimg-hld">
+                                <a href="<?= $block->escapeUrl($post->getPostUrl()) ?>" title="<?= /*@noEscape*/ $_postName ?>">
+                                    <img src="<?= $block->escapeUrl($post->getFeaturedImage()) ?>"
+                                        alt="<?= $block->escapeHtml($post->getFeaturedImageAlt()) ?>" />
+                                </a>
+                            </div>
+                            <?php if ($_categoriesCount = $_post->getCategoriesCount()) { ?>
+                                <div class="item post-categories">
+                                    <?php $n = 0; ?>
+                                    <?php foreach ($_post->getParentCategories() as $ct) { ?>
+                                        <?php $n++; ?>
+                                        <a title="<?= $block->escapeHtml($ct->getTitle()) ?>"
+                                        href="<?= $block->escapeUrl($ct->getCategoryUrl()) ?>"
+                                        ><?= $block->escapeHtml($ct->getTitle()) ?></a><?= /*@noEscape*/ ($n != $_categoriesCount) ? ',' : '' ?>
+                                    <?php } ?>
+                                </div>
+                            <?php } ?>
+                            <div class="post-header">
+                                <div class="post-title-holder clearfix">
+                                    <h2 class="post-title">
+                                        <a class="post-item-link" title="<?= $block->escapeHtml($post->getTitle()) ?>"
+                                            href="<?= $block->escapeUrl($post->getPostUrl()) ?>">
+                                                <?= $block->escapeHtml($post->getTitle()) ?>
+                                        </a>
+                                    </h2>
+                                </div>
+                            </div>
+                            <div class="post-text-hld clearfix">
+                                <?= $block->escapeHtml($post->getContent())?>
+                            </div>
+                            <a class="post-read-more"
+                                href="<?= $block->escapeUrl($post->getPostUrl()) ?>"
+                                title="<?= /*@noEscape*/ $_postName ?>">
+                                    <?= $block->escapeHtml(__('Read more')) ?>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+            <?php } ?>
+        </ol>
+    </div>
+    <?php } ?>
+<?php } ?>
+
