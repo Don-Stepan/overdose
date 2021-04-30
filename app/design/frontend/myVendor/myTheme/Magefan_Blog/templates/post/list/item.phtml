@@ -36,6 +36,17 @@
                     </a>
                 </div>
             <?php } ?>
+            <?php if ($_categoriesCount = $_post->getCategoriesCount()) { ?>
+                <div class="item post-categories">
+                    <?php $n = 0; ?>
+                    <?php foreach ($_post->getParentCategories() as $ct) { ?>
+                        <?php $n++; ?>
+                        <a title="<?= $block->escapeHtml($ct->getTitle()) ?>"
+                        href="<?= $block->escapeUrl($ct->getCategoryUrl()) ?>"
+                        ><?= $block->escapeHtml($ct->getTitle()) ?></a><?= /*@noEscape*/ ($n != $_categoriesCount) ? ',' : '' ?>
+                    <?php } ?>
+                </div>
+            <?php } ?>
             <div class="post-header">
                 <div class="post-title-holder clearfix">
                     <h2 class="post-title">

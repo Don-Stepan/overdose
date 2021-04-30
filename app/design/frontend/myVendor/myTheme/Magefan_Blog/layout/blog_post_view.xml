@@ -9,6 +9,14 @@
 -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column"  xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
-        <block class="Magefan\Blog\Block\Sidebar" name="blog.sidebar" remove="true" /> 
+        <referenceContainer name="blog.post.bottom">
+            <block name="block.contact.us" template="Magefan_Blog::post/contact_us.phtml" before="-">
+                <block class="Magento\Cms\Block\Block" name="talk.to.an.expert">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">Talk</argument>
+                    </arguments>
+                </block>
+            </block>
+        </referenceContainer>
     </body>
 </page>
