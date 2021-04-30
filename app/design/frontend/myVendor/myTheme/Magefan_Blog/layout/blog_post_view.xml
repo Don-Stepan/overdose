@@ -13,7 +13,7 @@
             <block name="block.contact.us" template="Magefan_Blog::post/contact_us.phtml" before="-">
                 <block class="Magento\Cms\Block\Block" name="talk.to.an.expert">
                     <arguments>
-                        <argument name="block_id" xsi:type="string">Talk</argument>
+                        <argument name="block_id" xsi:type="string">talk-to-an-expert</argument>
                     </arguments>
                 </block>
             </block>

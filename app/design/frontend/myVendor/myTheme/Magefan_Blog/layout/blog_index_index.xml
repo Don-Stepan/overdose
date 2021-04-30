@@ -12,7 +12,7 @@
         <referenceBlock name="columns">
             <block class="Magento\Cms\Block\Block" name="news" before="-">
                 <arguments>
-                    <argument name="block_id" xsi:type="string">News</argument>
+                    <argument name="block_id" xsi:type="string">blog-category-block-news</argument>
                 </arguments>
             </block>
         </referenceBlock>
