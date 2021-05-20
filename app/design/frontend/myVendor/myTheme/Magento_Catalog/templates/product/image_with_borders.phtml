@@ -1,0 +1,57 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+<?php
+/** @var $block \Magento\Catalog\Block\Product\Image */
+/** @var $escaper \Magento\Framework\Escaper */
+/** @var \Magento\Framework\View\Helper\SecureHtmlRenderer $secureRenderer */
+$width = 330;
+$paddingBottom = 100;
+?>
+<span class="product-image-container product-image-container-<?= /* @noEscape */ $block->getProductId() ?>" >
+    <span class="product-image-wrapper">
+        <img class="<?= $escaper->escapeHtmlAttr($block->getClass()) ?>"
+            <?php foreach ($block->getCustomAttributes() as $name => $value): ?>
+                <?= $escaper->escapeHtmlAttr($name) ?>="<?= $escaper->escapeHtml($value) ?>"
+            <?php endforeach; ?>
+            src="<?= $escaper->escapeUrl($block->getImageUrl()) ?>"
+            loading="lazy"
+
+            alt="<?= $escaper->escapeHtmlAttr($block->getLabel()) ?>"/>
+    </span>
+    <button type="submit"
+            title="<?= $escaper->escapeHtmlAttr(__('QUICK ADD')) ?>"
+            class="action tocart primary category-prod-button"
+            disabled>
+        <span><?= $escaper->escapeHtml(__('QUICK ADD')) ?></span>
+    </button>
+</span>
+<?php
+$styles = <<<STYLE
+.product-image-container-{$block->getProductId()} {
+    width: {$width}px;
+}
+.product-image-container-{$block->getProductId()} span.product-image-wrapper {
+    padding-bottom: {$paddingBottom}%;
+}
+STYLE;
+//In case a script was using "style" attributes of these elements
+$script = <<<SCRIPT
+prodImageContainers = document.querySelectorAll(".product-image-container-{$block->getProductId()}");
+for (var i = 0; i < prodImageContainers.length; i++) {
+    prodImageContainers[i].style.width = "{$width}px";
+}
+prodImageContainersWrappers = document.querySelectorAll(
+    ".product-image-container-{$block->getProductId()}  span.product-image-wrapper"
+);
+for (var i = 0; i < prodImageContainersWrappers.length; i++) {
+    prodImageContainersWrappers[i].style.paddingBottom = "{$paddingBottom}%";
+}
+SCRIPT;
+
+?>
+<?= /* @noEscape */ $secureRenderer->renderTag('style', [], $styles, false) ?>
+<?= /* @noEscape */ $secureRenderer->renderTag('script', ['type' => 'text/javascript'], $script, false) ?>
