@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="page.main.title">
+            <arguments>
+                <argument name="id" xsi:type="string">page-title-heading</argument>
+                <argument name="add_base_attribute_aria" xsi:type="string">page-title-heading toolbar-amount</argument>
+            </arguments>
+        </referenceBlock>
+        <referenceContainer name="page.wrapper">
+            <block name="join.the.list" template="Magento_Catalog::join_the_list.phtml" after="columns">
+                <block class="Magento\Cms\Block\Block" name="join.the.list.black" as="block_black_join">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">join-the-list</argument>
+                    </arguments>
+                </block>
+                <block class="Magento\Cms\Block\Block" name="our.stores.bottom.block" as="our_stores_block">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">our-stores-bottom-block</argument>
+                    </arguments>
+                </block>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

@@ -6,7 +6,6 @@ define([
 ], function($, modal, customerData) {
 
     $.widget ('custom.mymodal', {
-
         options: {
             type: 'popup',
             responsive: true,
@@ -33,7 +32,7 @@ define([
             });
          },
 
-         populateData: function() {         
+         populateData: function() {
             let customer = customerData.get('customer')();
             let firstName = customer.fullname.split(" ")[0];
             let lastName = customer.fullname.split(" ")[1];
@@ -41,6 +40,6 @@ define([
             $('#lname').val(lastName);
          }
      });
-     
+
     return $.custom.mymodal;
 });
