@@ -66,7 +66,13 @@ $_helper = $block->getData('outputHelper');
                         <?= $productImage->toHtml() ?>
                     </a>
 
-                    <p class="product-item-my-recommendet"><?= __('RECOMMENDED') ?></p>
+                    <button type="submit"
+                            title="<?= $escaper->escapeHtmlAttr(__('quick add')) ?>"
+                            class="action tocart primary category-prod-button"
+                            disabled>
+                        <span><?= $escaper->escapeHtml(__('quick add')) ?></span>
+                    </button>
+                    <p class="product-item-my-recommendet"><?= __('recommended') ?></p>
 
                     <div class="product details product-item-details">
                         <?php $_productNameStripped = $block->stripTags($_product->getName(), null, true); ?>
