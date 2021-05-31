@@ -4,42 +4,40 @@ define([
 ], function($, mediaCheck) {
 
     $.widget ('custom.categoryButton', {
-        sidebarSelector: '.sidebar-main',
 
         _create: function () {
+            let sidebarSelector = '.sidebar-main';
+            let pageHiderSelector = '.page-header';
+
             mediaCheck({
                 media: '(min-width: 768px)',
                 // Switch to Desktop Version
                 entry: function () {
-                    $(self.sidebarSelector).removeClass( "mobile-v-category");
-                    $(self.sidebarSelector).css({"display":"block"});
+                    $(sidebarSelector).removeClass( "mobile-v-category");
+                    $(sidebarSelector).show();
                 },
                 // Switch to Mobile Version
                 exit: function () {
-                    $(self.sidebarSelector).addClass( "mobile-v-category");
-                    $(self.sidebarSelector).css({"display":"none"});
+                    $(sidebarSelector).addClass( "mobile-v-category");
+                    $(sidebarSelector).hide();
 
                     $('.mobile-category-button').click(function (){
-                        self.openPopup();
+                        $(sidebarSelector).show();
+                        $(pageHiderSelector).hide();
+                        $("body").css({"overflow": "hidden"});
+                        $(sidebarSelector).addClass('openPopup');
                     });
                     $('.filter-header-close').click(function (){
-                        self.closePopup();
+                        $(sidebarSelector).hide();
+                        $(pageHiderSelector).show();
+                        $("body").css({"overflow": "scroll"});
                     });
                     $('.category-button-popup').click(function () {
-                        self.closePopup();
+                        $(sidebarSelector).hide();
+                        $(pageHiderSelector).show();
+                        $("body").css({"overflow": "scroll"});
                     });
                 },
-                openPopup: function() {
-                    $(self.sidebarSelector).show();
-                    $('.page-header').hide();
-                    $("body").css({"overflow":"hidden"});
-                    $(self.sidebarSelector).css({"padding-right":"0"});
-                },
-                closePopup: function() {
-                    $(self.sidebarSelector).hide();
-                    $('.page-header').show();
-                    $("body").css({"overflow":"scroll"});
-                }
             });
         },
     });

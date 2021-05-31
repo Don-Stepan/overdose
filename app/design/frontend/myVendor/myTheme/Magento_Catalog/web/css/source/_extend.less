@@ -326,8 +326,6 @@
     .page-products {
         .main {
             div:nth-of-type(4){
-                display: grid;
-                grid-template-columns: auto auto;
                 .toolbar-amount {
                     display: block;
                     padding-top: 20px;
@@ -443,6 +441,7 @@
                 line-height: 1.54;
                 letter-spacing: normal;
                 color: @color-gray636363;
+                float: left;
             }
         }
         .products-grid {
@@ -467,37 +466,53 @@
                     .product-item-info {
                         width: 100%;
                         position: relative;
-                        .category-prod-button {
-                            position: absolute;
-                            left: 2.5%;
-                            top: 20em;
-                            z-index: 1000;
-                            width: 95%;
-                            opacity: 0;
-                            visibility: hidden;
-                            transition: .3s opacity, .3s visibility;
-                            font-size: 12px;
-                            font-weight: bold;
-                            font-stretch: normal;
-                            font-style: normal;
-                            line-height: 1.33;
-                            letter-spacing: normal;
-                            text-align: center;
-                            text-transform: uppercase;
-                        }
-                        &:hover {
-                            button {
-                                opacity: 1;
-                                visibility: visible;
-                            }
-                        }
-                        .product-item-info {
+                        .product-item-photo {
                             .product-image-container {
                                 position: relative;
                                 .product-image-wrapper {
                                     img {
                                         margin: 0;
                                         width: 333px;
+                                    }
+                                }
+                            }
+                        }
+                        &:hover {
+                            .product-item-inner {
+                                visibility: visible;
+                                opacity: 1;
+                            }
+                        }
+                        .product-item-inner {
+                            position: absolute;
+                            left: 2.5%;
+                            top: 17em;
+                            z-index: 1000;
+                            width: 95%;
+                            opacity: 0;
+                            visibility: hidden;
+                            transition: .3s opacity, .3s visibility;
+                            .product-item-actions {
+                                width: 100%;
+                                margin: 0;
+                                .actions-secondary {
+                                    display: none;
+                                }
+                                .actions-primary {
+                                    width: 100%;
+                                    form {
+                                        width: 100%;
+                                        button {
+                                            font-size: 12px;
+                                            font-weight: bold;
+                                            font-stretch: normal;
+                                            font-style: normal;
+                                            line-height: 1.33;
+                                            letter-spacing: normal;
+                                            text-align: center;
+                                            text-transform: uppercase;
+                                            width: 100%;
+                                        }
                                     }
                                 }
                             }
@@ -519,7 +534,6 @@
                         .product-item-details {
                             display: grid;
                             grid-template-columns: auto auto;
-                            grid-template-rows: none;
                             .product-item-name {
                                 margin: 0;
                                 text-align: left;
@@ -570,11 +584,6 @@
                             }
                             .swatch-attribute {
                                 display: none;
-                            }
-                            .product-item-inner {
-                                .product-item-actions {
-                                    display: none;
-                                }
                             }
                         }
                     }
@@ -1047,6 +1056,15 @@
             }
             .sidebar-show {
                 display: block;
+            }
+            .openPopup {
+                padding-right: 0;
+            }
+            .open-popup-body {
+                overflow: hidden;
+            }
+            .close-popup-body {
+                overflow: scroll;
             }
         }
     }
