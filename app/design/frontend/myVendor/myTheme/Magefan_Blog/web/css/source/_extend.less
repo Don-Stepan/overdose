@@ -1,20 +1,22 @@
 
-
-// /**
-//  * Copyright © Magento, Inc. All rights reserved.
-//  * See COPYING.txt for license details.
-//  */
-
-@button__border-color: #adb5bd;
-@toolbar__border-color: #cccbcb;
+//fonts
+@messinaSans__font-family: 'MessinaSans', sans-serif;
+// color
+@color-black-000000__color: #000000;
+@color-5e6164: #5e6164;
+@color-fff: #fff;
+// border
+@border-ad5bd: 1px solid #adb5bd;
+@border-adb5bd: 1px solid #adb5bd;
+@border-color-000000: #000000;
+@border-toolbar-cccbcb__border: 1px solid #cccbcb;
+// background-color
+@background-color-000000: #000000;
 //  Common
 //  _____________________________________________
 
 & when (@media-common = true) {
-    .page-title-wrapper {
-        display: none;
-    }
-    /////// cms block ////
+    /////// cms block ///
     .my-cms-block {
         margin-bottom: 50px;
         .cms-block-title {
@@ -22,36 +24,45 @@
         }
     }
      //// category ////
-    .block-categories {
+    .widget.block-categories {
+        margin: 0;
         .block-title {
-            color: @color-black;
-            border-bottom: 1px solid @button__border-color;
+            border-bottom: @border-ad5bd;
             padding-bottom: 15px;
             width: 188.66px;
-            float: right;
+            float: left;
             strong {
                 font-weight: bold;
                 font-size: 14px;
+                padding-top: 4px;
+                font-family: @messinaSans__font-family;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1.29;
+                letter-spacing: normal;
+                color: @color-black-000000__color;
             }
-
             input {
                 float: right;
                 background: none;
                 color: #adb5bd;
-                border: 1px solid @button__border-color;
+                border: @border-ad5bd;
                 padding: 4px 6px;
             }
         }
         .accordion {
+            margin-left: 0;
+            padding-right: 18px;
             li {
                 list-style-type: none;
+                margin-left: 0;
                 a {
                     text-decoration: none;
-                    color: #5e6164;
+                    color: @color-5e6164;
                 }
                 .box-category-number {
                     float: right;
-                    border: 1px solid @button__border-color;
+                    border: @border-ad5bd;
                     width: 1em;
                     height: 1em;
                     margin-top: 2px;
@@ -76,7 +87,7 @@
                     }
                     .post-categories {
                         a {
-                            color: @color-black;
+                            color: @color-black-000000__color;
                             text-decoration: none;
                             font-weight: 700;
                         }
@@ -86,7 +97,7 @@
                             .post-title {
                                 a {
                                     font-weight: bold;
-                                    color: @color-black;
+                                    color: @color-black-000000__color;
                                 }
                             }
                             .addthis_toolbox {
@@ -105,7 +116,7 @@
                     }
                     .post-read-more {
                         float: left;
-                        color: @color-black;
+                        color: @color-black-000000__color;
                         font-weight: 700;
                     }
                 }
@@ -118,36 +129,36 @@
             .pages-items {
                 float: right;
                 .pages-item-next {
-                    background-color: @color-black;
-                    border-color: @color-black;
+                    background-color: @background-color-000000;
+                    border-color: @border-color-000000;
                     .action {
-                        color: @color-white;
+                        color: @color-fff;
                         margin: 0;
                         width: 32px;
                         border: none;
                     }
                 }
                 .pages-item-previous {
-                    background-color: @color-black;
-                    border-color: @color-black;
+                    background-color: @color-black-000000__color;
+                    border-color: @color-black-000000__color;
                     .action {
-                        color: @color-white;
+                        color: @color-fff;
                         margin: 0;
                         width: 32px;
                         border: none;
                     }
                 }
                 .item {
-                    border: 1px solid @toolbar__border-color;
+                    border: @border-toolbar-cccbcb__border;
                     width: 32px;
                     text-align: center;
                     margin: 0;
                     a {
-                        color: @color-black;
+                        color: @color-black-000000__color;
                     }
                 }
                 .current {
-                    border-color: @color-black;
+                    border-color: @color-black-000000__color;
                 }
             }
         }
@@ -185,8 +196,8 @@
                     padding: 30px 0;
                     margin-bottom: 50px;
                     margin-top: 50px;
-                    border-top: 1px solid @button__border-color;
-                    border-bottom: 1px solid @button__border-color;
+                    border-top: @border-adb5bd;
+                    border-bottom: @border-adb5bd;
                     .block-content-contact {
                         width: 65%;
                         margin-left: auto;
@@ -200,7 +211,7 @@
                             }
                             input {
                                 margin-top: 30px;
-                                border: 1px solid @button__border-color;
+                                border: @border-adb5bd;
                                 padding: 10px 35px;
                                 background: none;
                                 font-weight: 600;
